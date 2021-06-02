@@ -1,0 +1,66 @@
+{% extends 'main/base.html' %}
+{% block title %}
+    A'riza qoldirish
+{% endblock %}
+{% block body %}
+
+  <main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <div class="breadcrumbs" data-aos="fade-in">
+      <div class="container">
+        <h2>A'riza berish</h2>
+        <p>Kursni tanlab, a'rizani yuboring tez-orada xodimlarimiz siz bilan bo'glanishadi </p>
+      </div>
+    </div><!-- End Breadcrumbs -->
+
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact">
+      <div class="container" data-aos="fade-up">
+
+        <div class="row mt-5">
+
+            {% if message %}
+                <h2>{{ message }}</h2>
+            {% endif %}
+          <div class="col-lg-8 mt-5 mt-lg-0">
+
+            <form action="{% url 'application' %}" method="post" role="form" class="php-email-form">
+                {% csrf_token %}
+              <div class="row">
+                <div class="col-md-6 form-group">
+                  <input type="text" name="first_name" class="form-control" id="first_name" placeholder="Ismingiz" required>
+                </div>
+                <div class="col-md-6 form-group mt-3 mt-md-0">
+                  <input type="text" class="form-control" name="last_name" id="last_name" placeholder="Familyangiz" required>
+                </div>
+                  <div class="col-md-6 form-group mt-3 mt-md-0">
+                  <input type="tel"  class="form-control" name="phone_number" id="phone_number" placeholder="Telefon nomeringiz (9981234556)" required>
+                </div>
+              </div>
+                <div class="form-group mt-3">
+                <select class="form-control form-control-lg" name="subject">
+                  <option>Matematika</option>
+                  <option>Tarix</option>
+                  <option>Ona tili</option>
+                  <option>Ingliz tili</option>
+                </select>
+              </div>
+
+              <div class="my-3">
+                <div class="loading">Loading</div>
+                <div class="error-message"></div>
+                <div class="sent-message">Your message has been sent. Thank you!</div>
+              </div>
+              <div class="text-center"><button type="submit">Yuborish</button></div>
+            </form>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Contact Section -->
+
+  </main><!-- End #main -->
+{% endblock %}

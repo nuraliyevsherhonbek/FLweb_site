@@ -1,0 +1,74 @@
+{% extends "main/base.html" %}
+{% block title %}
+Natijalar
+{% endblock %}
+{% block body %}
+<main id="main" data-aos="fade-in">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <div class="breadcrumbs">
+      <div class="container">
+        <h2>Natijalar</h2>
+      </div>
+    </div><!-- End Breadcrumbs -->
+
+    <!-- ======= Courses Section ======= -->
+    {% if results %}
+        <section id="courses" class="courses">
+          <div class="container" data-aos="fade-up">
+{#            <div class="row" data-aos="zoom-in" data-aos-delay="100">#}
+            <div class="row row-cols-1 row-cols-md-3">
+              {% for result in results %}
+                  <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+            <div class="member">
+              <img src="{{ result.results_image.url }}" class="img-fluid" alt="">
+              <div class="member-content">
+                <h4>{{ result.student_name }}</h4>
+                <span>Natija:{{ result.score }}</span>
+                <p style="color: #5fcf80">{{ result.university_or_ielts}}</p>
+                <p>
+                  {{  result.description }}
+                </p>
+              </div>
+            </div>
+          </div>
+
+
+
+{#                <div class="col-lg-4 col-md-6 d-flex align-items-stretch">#}
+{#                    <div class="course-item">#}
+{#                      <img src="{{ course.image.url }}" class="img-fluid" alt="...">#}
+{#                      <div class="course-content">#}
+{#                        <div class="d-flex justify-content-between align-items-center">#}
+{#                          <h4>{{ course.subject }}</h4>#}
+{#                          <p class="price">{{course.cost}} so'm</p>#}
+{#                        </div>#}
+{##}
+{#                        <h3>{{ course.name }}</h3>#}
+{#                        <p>{{ course.description }}</p>#}
+{#                        <div class="trainer d-flex justify-content-between align-items-center">#}
+{#                          <div class="trainer-profile d-flex align-items-center">#}
+{#                            <img src="../../static/main/assets/img/trainers/trainer-1.jpg" class="img-fluid" alt="">#}
+{#                            <span>Antonio</span>#}
+{#                          </div>#}
+{#                          <div class="trainer-rank d-flex align-items-center">#}
+{#                            <i class="bx bx-user"></i>&nbsp;50#}
+{#                            &nbsp;&nbsp;#}
+{#                            <i class="bx bx-heart"></i>&nbsp;65#}
+{#                          </div>#}
+{#                        </div>#}
+{#                      </div>#}
+{#                    </div>#}
+{#                </div> <!-- End Course Item-->#}
+{#                  </div>#}
+              {% endfor %}
+          </div>
+{#            </div>#}
+          </div>
+        </section><!-- End Courses Section -->
+    {% else %}
+        <h3 style="text-align: center; color: red">Natijalar hali mavjud emas</h3>
+    {% endif %}
+
+  </main><!-- End #main -->
+{% endblock %}
